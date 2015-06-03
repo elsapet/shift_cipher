@@ -7,6 +7,7 @@ Gem::Specification.new do |spec|
   spec.name          = "shift_cipher"
   spec.version       = ShiftCipher::VERSION
   spec.authors       = ["elsapet"]
+  spec.email         = ["ebraae@gmail.com"]
 
   spec.summary       = "encrypt and de-crypt messages"
   spec.description   = "encrypt and de-crypt messages using a simple caeser cipher, given an offset"
@@ -20,4 +21,11 @@ Gem::Specification.new do |spec|
 
   spec.add_development_dependency "bundler", "~> 1.9"
   spec.add_development_dependency "rake", "~> 10.0"
+
+  # testing
+  spec.add_development_dependency "rspec"
+  spec.add_development_dependency "rspec-nc"
+  spec.add_development_dependency "pry"
+  spec.add_development_dependency "pry-remote"
+  spec.add_development_dependency "pry-nav"
 end
