@@ -48,15 +48,23 @@ module ShiftCipher
         if is_alpha?(character)
           shifted_character = shift_character(character, directional_offset)
           shifted_message += shifted_character
-        else
+        elsif is_numeric?(character) or is_whitespace?(character)
           shifted_message += character
         end
       end if message
-      shifted_message
+      shifted_message.squeeze(' ')
     end
 
     def is_alpha?(character)
       character.match(/^[[:alpha:]]$/)
+    end
+
+    def is_numeric?(character)
+      character.match(/^[[:digit:]]$/)
+    end
+
+    def is_whitespace?(character)
+      character.match(/^\s$/)
     end
 
     def shift_character(character, offset)
