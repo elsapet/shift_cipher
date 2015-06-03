@@ -22,9 +22,6 @@ Gem::Specification.new do |spec|
   spec.add_development_dependency "rake", "~> 10.0"
 
   # testing
-  spec.add_development_dependency "rspec"
-  spec.add_development_dependency "rspec-nc"
-  spec.add_development_dependency "pry"
-  spec.add_development_dependency "pry-remote"
-  spec.add_development_dependency "pry-nav"
+  spec.add_development_dependency "rspec", "~> 3.2", ">= 3.2.3"
+  spec.add_development_dependency "pry", "~> 0.10.0"
 end
