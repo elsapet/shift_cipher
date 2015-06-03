@@ -27,6 +27,7 @@ Initialise the Caeser cipher
 ```
 or
 ```ruby
+  cipher = ShiftCipher::Caeser.new('d') # initialised with an offset of 3 ('a' = 'd')
 ```
 
 Encrypt a message:
