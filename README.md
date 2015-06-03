@@ -1,6 +1,6 @@
 # ShiftCipher
 
-A simple shift cipher, also known as a caeser ciipher
+A simple shift cipher, also known as a Caeser cipher
 
 ## Installation
 
@@ -25,18 +25,22 @@ Initialise the Caeser cipher
 ```ruby
   cipher = ShiftCipher::Caeser.new(3) # initialised with an offset of 3 ('a' = 'd')
 ```
+
 or
+
 ```ruby
   cipher = ShiftCipher::Caeser.new('d') # initialised with an offset of 3 ('a' = 'd')
 ```
 
 Encrypt a message:
+
 ```ruby
   encrypted_message = cipher.encrypt('hello world') 
   p encrypted_message # => "khoor zruog"
 ```
 
 Decrypt a message:
+
 ```ruby
   decrypted_message = cipher.decrypt('khoor zruog') 
   p decrypted_message # => "hello world"
