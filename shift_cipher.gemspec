@@ -7,7 +7,6 @@ Gem::Specification.new do |spec|
   spec.name          = "shift_cipher"
   spec.version       = ShiftCipher::VERSION
   spec.authors       = ["elsapet"]
-  spec.email         = ["ebraae@gmail.com"]
 
   spec.summary       = "encrypt and de-crypt messages"
   spec.description   = "encrypt and de-crypt messages using a simple caeser cipher, given an offset"
