@@ -50,7 +50,7 @@ end.parse!
 cipher = options[:offset] ? ShiftCipher::Caeser.new(options[:offset]) : ShiftCipher::Caeser.new
 
 if options[:decrypt]
-  p cipher.decrypt(ARGV[options.size])
+  p cipher.decrypt(ARGV.last)
 else
-  p cipher.encrypt(ARGV[options.size])
+  p cipher.encrypt(ARGV.last)
 end
