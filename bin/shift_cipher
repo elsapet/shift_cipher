@@ -1,0 +1,56 @@
+#!/usr/bin/env ruby
+
+# == Synopsis 
+#   This is a simple shift (Caeser) cipher for Ruby
+#
+# == Examples
+#   Encode text 
+#     shift_cipher -o 4 "hello world"  =>  "khoor zruog"
+#   Decode text
+#     shift_cipher -o 4 -d "khoor zruog"  =>  "hello world"
+#
+#   Other examples:
+#     We can set the starting letter of the shifted alphabet rather than the offset. The following is 
+#     equivalent to shift_cipher -o 3 "hello world"
+#       shift_cipher -s "c" "hello world"  =>  "jgnnq yqtnf"
+#
+# == Usage 
+#   shift_cipher [options] text
+#
+#   For help use: shift_cipher -h
+#
+# == Options
+#   -h, --help                Displays help message
+#   -o, --offset OFFSET       Sets the alphabet offset
+#   -s, --start START         Sets the starting letter of the shifted alphabet
+#   -d, --decrypt             Decrypts the given message    Decrypt
+#
+# == Author
+#   elsapet
+#
+# == Copyright
+#   Copyright (c) 2015 elsapet
+#   Licensed under the MIT License: http://www.opensource.org/licenses/mit-license.php
+
+
+require 'shift_cipher'
+require 'optparse'
+
+options = {}
+
+OptionParser.new do |opts|
+  opts.on("-o [OFFSET]", "--offset [OFFSET]", "-s [OFFSET]", "--start [OFFSET]") do |o|
+    options[:offset] = o
+  end
+  opts.on("-d", "--decrypt", "Decrypt") do
+    options[:decrypt] = true
+  end
+end.parse!
+
+cipher = options[:offset] ? ShiftCipher::Caeser.new(options[:offset]) : ShiftCipher::Caeser.new
+
+if options[:decrypt]
+  p cipher.decrypt(ARGV[options.size])
+else
+  p cipher.encrypt(ARGV[options.size])
+end
