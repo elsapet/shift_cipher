@@ -43,14 +43,14 @@ Encrypt a message:
 
 ```
   encrypted_message = cipher.encrypt('hello world') 
-  p encrypted_message # => "khoor zruog"
+  p encrypted_message # => "khoorzruog"
 ```
 
 Decrypt a message:
 
 ```
-  decrypted_message = cipher.decrypt('khoor zruog') 
-  p decrypted_message # => "hello world"
+  decrypted_message = cipher.decrypt('khoorzruog') 
+  p decrypted_message # => "helloworld"
 ```
 
 ## Development
