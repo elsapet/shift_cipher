@@ -1,7 +1,7 @@
 #!/usr/bin/env ruby
 
 # == Synopsis 
-#   This is a simple shift (Caeser) cipher for Ruby
+#   This is a simple shift (Caesar) cipher for Ruby
 #
 # == Examples
 #   Encode text 
@@ -47,7 +47,7 @@ OptionParser.new do |opts|
   end
 end.parse!
 
-cipher = options[:offset] ? ShiftCipher::Caeser.new(options[:offset]) : ShiftCipher::Caeser.new
+cipher = options[:offset] ? ShiftCipher::Caesar.new(options[:offset]) : ShiftCipher::Caesar.new
 
 if options[:decrypt]
   p cipher.decrypt(ARGV.last)

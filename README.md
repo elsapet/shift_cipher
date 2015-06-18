@@ -1,12 +1,12 @@
 # ShiftCipher
 
-A simple shift cipher, also known as a Caeser cipher
+A simple shift cipher, also known as a Caesar cipher
 
 ## Installation
 
 Add this line to your application's Gemfile:
 
-```ruby
+```
 gem 'shift_cipher'
 ```
 
@@ -20,31 +20,51 @@ Or install it yourself as:
 
 ## Usage
 
-Initialise the Caeser cipher
+Initialise the Caesar cipher
 
-```ruby
-  cipher = ShiftCipher::Caeser.new(3) # initialised with an offset of 3 ('a' = 'd')
+```
+  cipher = ShiftCipher::Caesar.new(3) # initialised with an offset of 3 ('a' = 'd')
 ```
 
 or
 
-```ruby
-  cipher = ShiftCipher::Caeser.new('d') # initialised with an offset of 3 ('a' = 'd')
+```
+  cipher = ShiftCipher::Caesar.new(-3) # initialised with a negative offset of 3 ('a' = 'x')
+```
+
+or
+
+
+```
+  cipher = ShiftCipher::Caesar.new('d') # initialised with an offset of 3 ('a' = 'd')
 ```
 
 Encrypt a message:
 
-```ruby
+```
   encrypted_message = cipher.encrypt('hello world') 
   p encrypted_message # => "khoor zruog"
 ```
 
 Decrypt a message:
 
-```ruby
+```
   decrypted_message = cipher.decrypt('khoor zruog') 
   p decrypted_message # => "hello world"
 ```
+
+### Using the CLI tool:
+
+````
+  shift_cipher [options] text
+````
+
+#### Options
+   ```-h, --help```                Displays help message
+   ```-o, --offset OFFSET```       Sets the alphabet offset
+   ```-s, --start START```         Sets the starting letter of the shifted alphabet
+   ```-d, --decrypt```             Decrypts the given message    Decrypt
+
 
 ## Development
 

@@ -1,5 +1,5 @@
 require "shift_cipher/version"
-require "shift_cipher/caeser"
+require "shift_cipher/caesar"
 
 module ShiftCipher
 end

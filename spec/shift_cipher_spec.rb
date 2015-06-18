@@ -2,10 +2,10 @@ require 'spec_helper'
 
 describe ShiftCipher do
 
-  describe 'Caeser Shift Cipher' do
+  describe 'Caesar Shift Cipher' do
 
     context 'cipher encrypts and decrypts message given offset' do
-      let(:cipher) { ShiftCipher::Caeser.new(1) }
+      let(:cipher) { ShiftCipher::Caesar.new(1) }
       
       it 'encrypts a message' do
         expect(cipher.encrypt('hello world')).to eq('ifmmp xpsme')
@@ -22,10 +22,15 @@ describe ShiftCipher do
         expect(cipher.decrypt('yza')).to eq('xyz')
         expect(cipher.decrypt('abc')).to eq('zab')
       end
+
+      it 'has a negative offset' do
+        negative_cipher = ShiftCipher::Caesar.new(-1)
+        expect(negative_cipher.encrypt('hello world')).to eq('gdkkn vnqkc')
+      end
     end
 
     context 'cipher initialized with starting letter' do
-      let(:cipher) { ShiftCipher::Caeser.new('b') }
+      let(:cipher) { ShiftCipher::Caesar.new('b') }
 
       it 'sets the offset to one' do
         expect(cipher.offset).to eq(1)
@@ -33,7 +38,7 @@ describe ShiftCipher do
     end
 
     context 'cipher initialized with integer offset' do
-      let(:cipher) { ShiftCipher::Caeser.new(1) }
+      let(:cipher) { ShiftCipher::Caesar.new(1) }
       
       it 'sets the offset to one' do
         expect(cipher.offset).to eq(1)
@@ -41,7 +46,7 @@ describe ShiftCipher do
     end
 
     context 'cipher initialized with string offset' do
-      let(:cipher) { ShiftCipher::Caeser.new('1') }
+      let(:cipher) { ShiftCipher::Caesar.new('1') }
       
       it 'sets the offset to one' do
         expect(cipher.offset).to eq(1)
@@ -49,7 +54,7 @@ describe ShiftCipher do
     end
 
     context 'cipher initialized with no offset (takes default)' do
-      let(:cipher) { ShiftCipher::Caeser.new }
+      let(:cipher) { ShiftCipher::Caesar.new }
       
       it 'sets the offset to zero' do
         expect(cipher.offset).to eq(0)
@@ -57,7 +62,7 @@ describe ShiftCipher do
     end
 
     context 'cipher string includes capital letters' do
-      let(:cipher) { ShiftCipher::Caeser.new(1) }
+      let(:cipher) { ShiftCipher::Caesar.new(1) }
       
       it 'encrypts a message' do
         expect(cipher.encrypt('Hello WORLD')).to eq('ifmmp xpsme')
@@ -69,7 +74,7 @@ describe ShiftCipher do
     end
 
     context 'cipher string includes numeric characters' do
-      let(:cipher) { ShiftCipher::Caeser.new(1) }
+      let(:cipher) { ShiftCipher::Caesar.new(1) }
       
       it 'encrypts a message' do
         expect(cipher.encrypt('h3ll0 w0rld!')).to eq('i3mm0 x0sme')
@@ -81,7 +86,7 @@ describe ShiftCipher do
     end
 
     context 'cipher string includes non-alpha-numeric characters' do
-      let(:cipher) { ShiftCipher::Caeser.new(1) }
+      let(:cipher) { ShiftCipher::Caesar.new(1) }
       
       it 'encrypts a message' do
         expect(cipher.encrypt('Oh! world, & how I say, "hello" to thee.')).to eq('pi xpsme ipx j tbz ifmmp up uiff')
@@ -89,7 +94,7 @@ describe ShiftCipher do
     end
 
     context 'multi-line message' do
-      let(:cipher) { ShiftCipher::Caeser.new(1) }
+      let(:cipher) { ShiftCipher::Caesar.new(1) }
 
       it 'encrypts a multi-line message' do
         message = "Love is too young to know what conscience is,\nYet who knows not conscience is born of love?"
@@ -99,7 +104,7 @@ describe ShiftCipher do
     end
 
     context 'cipher given empty string' do
-      let(:cipher) { ShiftCipher::Caeser.new(1) }
+      let(:cipher) { ShiftCipher::Caesar.new(1) }
       
       it 'encrypts a message' do
         expect(cipher.encrypt('')).to eq('')

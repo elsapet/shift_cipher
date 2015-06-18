@@ -9,7 +9,7 @@ Gem::Specification.new do |spec|
   spec.authors       = ["elsapet"]
 
   spec.summary       = "encrypt and de-crypt messages"
-  spec.description   = "encrypt and de-crypt messages using a simple caeser cipher, given an offset"
+  spec.description   = "encrypt and de-crypt messages using a simple Caesar cipher, given an offset"
   spec.homepage      = "https://github.com/elsapet/shift_cipher"
   spec.license       = "MIT"
 
