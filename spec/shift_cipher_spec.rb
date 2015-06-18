@@ -8,11 +8,11 @@ describe ShiftCipher do
       let(:cipher) { ShiftCipher::Caesar.new(1) }
       
       it 'encrypts a message' do
-        expect(cipher.encrypt('hello world')).to eq('ifmmp xpsme')
+        expect(cipher.encrypt('hello world')).to eq('ifmmpxpsme')
       end
 
       it 'decrypts a message' do
-        expect(cipher.decrypt('ifmmp xpsme')).to eq('hello world')
+        expect(cipher.decrypt('ifmmpxpsme')).to eq('helloworld')
       end
 
       it 'correctly cycles alphabet' do
@@ -25,7 +25,7 @@ describe ShiftCipher do
 
       it 'has a negative offset' do
         negative_cipher = ShiftCipher::Caesar.new(-1)
-        expect(negative_cipher.encrypt('hello world')).to eq('gdkkn vnqkc')
+        expect(negative_cipher.encrypt('hello world')).to eq('gdkknvnqkc')
       end
     end
 
@@ -65,11 +65,11 @@ describe ShiftCipher do
       let(:cipher) { ShiftCipher::Caesar.new(1) }
       
       it 'encrypts a message' do
-        expect(cipher.encrypt('Hello WORLD')).to eq('ifmmp xpsme')
+        expect(cipher.encrypt('Hello WORLD')).to eq('ifmmpxpsme')
       end
 
       it 'decrypts a message' do
-        expect(cipher.decrypt('ifmMP xPSme')).to eq('hello world')
+        expect(cipher.decrypt('ifmMPxPSme')).to eq('helloworld')
       end
     end
 
@@ -77,11 +77,11 @@ describe ShiftCipher do
       let(:cipher) { ShiftCipher::Caesar.new(1) }
       
       it 'encrypts a message' do
-        expect(cipher.encrypt('h3ll0 w0rld!')).to eq('i3mm0 x0sme')
+        expect(cipher.encrypt('h3ll0 w0rld!')).to eq('i3mm0x0sme')
       end
 
       it 'decrypts a message' do
-        expect(cipher.decrypt('i3mm0 x0sme!')).to eq('h3ll0 w0rld')
+        expect(cipher.decrypt('i3mm0x0sme!')).to eq('h3ll0w0rld')
       end
     end
 
@@ -89,7 +89,7 @@ describe ShiftCipher do
       let(:cipher) { ShiftCipher::Caesar.new(1) }
       
       it 'encrypts a message' do
-        expect(cipher.encrypt('Oh! world, & how I say, "hello" to thee.')).to eq('pi xpsme ipx j tbz ifmmp up uiff')
+        expect(cipher.encrypt('Oh!world,&howIsay,"hello"tothee.')).to eq('pixpsmeipxjtbzifmmpupuiff')
       end      
     end
 
@@ -98,7 +98,7 @@ describe ShiftCipher do
 
       it 'encrypts a multi-line message' do
         message = "Love is too young to know what conscience is,\nYet who knows not conscience is born of love?"
-        encrypted_message = "mpwf jt upp zpvoh up lopx xibu dpotdjfodf jt\nzfu xip lopxt opu dpotdjfodf jt cpso pg mpwf"
+        encrypted_message = "mpwfjtuppzpvohuplopxxibudpotdjfodfjtzfuxiplopxtopudpotdjfodfjtcpsopgmpwf"
         expect(cipher.encrypt(message)).to eq(encrypted_message)
       end
     end
