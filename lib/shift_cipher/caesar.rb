@@ -48,7 +48,7 @@ module ShiftCipher
         if is_alpha?(character)
           shifted_character = shift_character(character, directional_offset)
           shifted_message += shifted_character
-        elsif is_numeric?(character) or is_whitespace?(character)
+        elsif is_numeric?(character) #or is_whitespace?(character)
           shifted_message += character
         end
       end if message
