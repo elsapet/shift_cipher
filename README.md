@@ -53,19 +53,6 @@ Decrypt a message:
   p decrypted_message # => "hello world"
 ```
 
-### Using the CLI tool:
-
-````
-  shift_cipher [options] text
-````
-
-#### Options
-   ```-h, --help```                Displays help message
-   ```-o, --offset OFFSET```       Sets the alphabet offset
-   ```-s, --start START```         Sets the starting letter of the shifted alphabet
-   ```-d, --decrypt```             Decrypts the given message    Decrypt
-
-
 ## Development
 
 After checking out the repo, run `bin/setup` to install dependencies. Then, run `bin/console` for an interactive prompt that will allow you to experiment.
